@@ -12,9 +12,10 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #73a5ff, #5477f5, #ff9a9e, #ffdde1);
+            /* background: linear-gradient(135deg, #73a5ff, #5477f5, #ff9a9e, #ffdde1);
             background-size: 400% 400%;
-            animation: gradientBackground 15s ease infinite;
+            animation: gradientBackground 15s ease infinite; */
+            background-color: #2F4F4F;
             color: #fff;
             text-align: center;
         }
@@ -30,16 +31,17 @@
             }
         }
         .container {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             color: #333;
             max-width: 600px;
             margin-top: 40px;
+            z-index: 2;
         }
         .container2 {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -47,6 +49,7 @@
             max-width: 600px;
             margin-top: 40px;
             text-align: left;
+            z-index: 2;
         }
         h1 {
             font-family: 'Open Sans', sans-serif;
@@ -70,9 +73,91 @@
         width: 100%;
         max-width: 500px;
         }
+
+        .stream {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .line {
+            position: absolute;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 255, 0, 0), #0f0);
+            opacity: 0;
+            animation: moveStreamUp 5s linear infinite, fadeIn 1s forwards;
+            filter: blur(5px); /* Apply Gaussian blur */
+        }
+        .line.down {
+            background: linear-gradient(to top, rgba(255, 0, 0, 0), rgb(12, 208, 222));
+            animation: moveStreamDown 5s linear infinite, fadeIn 1s forwards;
+        }
+        @keyframes moveStreamUp {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+        @keyframes moveStreamDown {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .line:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .line:nth-child(2) {
+            animation-delay: 6s;
+        }
+        .line:nth-child(3) {
+            animation-delay: 2s;
+        }
+        .line:nth-child(4) {
+            animation-delay: 1s;
+        }
+        .line:nth-child(5) {
+            animation-delay: 4s;
+        }
+        .line:nth-child(6) {
+            animation-delay: 3.5s;
+        }
+        .line:nth-child(7) {
+            animation-delay: 2.5s;
+        }
+        .line:nth-child(8) {
+            animation-delay: 1.5s;
+        }
+        .line:nth-child(9) {
+            animation-delay: 0.3s;
+        }
     </style>
 </head>
 <body>
+    <div class="stream">
+        <div class="line" style="left: 10%;"></div>
+        <div class="line down" style="left: 20%;"></div>
+        <div class="line" style="left: 30%;"></div>
+        <div class="line down" style="left: 40%;"></div>
+        <div class="line" style="left: 50%;"></div>
+        <div class="line down" style="left: 60%;"></div>
+        <div class="line" style="left: 70%;"></div>
+        <div class="line down" style="left: 80%;"></div>
+        <div class="line" style="left: 90%;"></div>
+    </div>
     <div class="container">
         <img src="logo.png" alt="SCADA Torch Logo" class="logo">
         
@@ -94,5 +179,18 @@
         
         </ul>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const lines = document.querySelectorAll('.line');
+            lines.forEach((line, index) => {
+                const randomDuration = Math.random() * 2 +2 ; // Random duration between 5s and 10s
+                const direction = line.classList.contains('down') ? 'moveStreamDown' : 'moveStreamUp';
+                const randomLeft = Math.random() * 100; // Random left position between 0% and 100%
+                line.style.left = `${randomLeft}%`;
+                line.style.animation = `${direction} ${randomDuration}s linear infinite, fadeIn 1s forwards`;
+                line.style.animationDelay = `${index}s`; // Staggered start times
+            });
+        });
+    </script>
 </body>
 </html>
