@@ -1,7 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to SCADA Torch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #73a5ff, #5477f5, #ff9a9e, #ffdde1);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            color: #fff;
+            text-align: center;
+        }
+        @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #333;
+            max-width: 600px;
+            margin-top: 40px;
+        }
+        h1 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        a {
+            color: #0073b1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+        width: 100%;
+        max-width: 500px;
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <div class="container">
+        <img src="logo.png" alt="SCADA Torch Logo" class="logo">
+        
+        <p>Thank you for visiting scadatorch.com. At this time,  operations are paused and I am not accepting new clients.</p>
+        <p>To stay informed about future updates, please connect with me on:</p>
+        <p>
+            LinkedIn: <a href="https://www.linkedin.com/in/maxcarritt/" target="_blank">Max Carritt</a><br>
+            YouTube: <a href="https://www.youtube.com/@scadatorch2211" target="_blank">SCADA Torch Channel</a>
+        </p>
+    </div>
+    <div class="container">
+        <h1>Check out some of my work:</h1>
+        <p><a href="https://inductiveautomation.com/resources/customerproject/edge-computing-and-mqtt-help-uncrewed-vessels-gather-data-from-oceans" target="_blank">Edge Computing and MQTT Help Uncrewed Vessels Gather Data from Oceans</a></p>
+        <p><a href="https://pf2em.nullstack.io/data/perspective/client/Pathfinder2e/encounterManager/As5TYxXh" target="_blank">Tabletop Game Project built with Ignition (Live Demo)</a></p>
+        <p><a href="https://www.linkedin.com/posts/inductive-automation_fantasy-game-management-with-ignition-maker-activity-6804108255028228096-2pkO/?trk=public_profile_like_view" target="_blank">Game Project explanation + Co-marketing with Inductive Automation</a></p>
+    </div>
 </body>
 </html>
