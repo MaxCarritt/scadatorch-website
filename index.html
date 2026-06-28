@@ -19,6 +19,15 @@
             color: #fff;
             text-align: center;
         }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 40px;
+            width: min(1400px, calc(100% - 40px));
+            margin: 40px auto;
+            align-items: start;
+            z-index: 2;
+        }
         @keyframes gradientBackground {
             0% {
                 background-position: 0% 50%;
@@ -36,9 +45,8 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             color: #333;
-            max-width: 600px;
-            width: calc(100% - 80px);
-            margin-top: 40px;
+            width: 100%;
+            box-sizing: border-box;
             z-index: 2;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
         }
@@ -48,9 +56,8 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             color: #333;
-            max-width: 600px;
-            width: calc(100% - 80px);
-            margin-top: 40px;
+            width: 100%;
+            box-sizing: border-box;
             text-align: left;
             z-index: 2;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -61,6 +68,39 @@
             aspect-ratio: 16 / 9;
             border: 0;
         }
+        .linkedin-card iframe {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 504 / 1026;
+            border: 0;
+        }
+        .linkedin-images {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .linkedin-images img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        @media (max-width: 800px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                width: min(680px, calc(100% - 24px));
+                margin: 24px auto;
+            }
+            .container,
+            .container2 {
+                padding: 24px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
         h1 {
             font-family: 'Open Sans', sans-serif;
             font-size: 2.5em;
@@ -68,6 +108,11 @@
         }
         p {
             font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        li {
+            font-size: 1.1em;
             line-height: 1.6;
             margin-bottom: 20px;
         }
@@ -168,30 +213,40 @@
         <div class="line down" style="left: 80%;"></div>
         <div class="line" style="left: 90%;"></div>
     </div>
-    <div class="container">
-        <img src="logo.png" alt="SCADA Torch Logo" class="logo">
+    <main class="card-grid">
+        <div class="container">
+            <img src="logo.png" alt="SCADA Torch Logo" class="logo">
         
-        <p>Thank you for visiting scadatorch.com. At this time,  operations are paused and I am not accepting new clients.</p>
-        <p>To stay informed about future updates, please connect with me on:</p>
-        <p>
-            LinkedIn: <a href="https://www.linkedin.com/in/maxcarritt/" target="_blank">Max Carritt</a><br>
-            YouTube: <a href="https://www.youtube.com/@scadatorch2211" target="_blank">SCADA Torch Channel</a>
-        </p>
-    </div>
-    <div class="container2">
-        <h1>Check out some of my work:</h1>
-        <ul>
-        <p><li><a href="https://inductiveautomation.com/resources/customerproject/edge-computing-and-mqtt-help-uncrewed-vessels-gather-data-from-oceans" target="_blank">Edge Computing and MQTT Help Uncrewed Vessels Gather Data from Oceans</a></li>
-        <p><li><a href="https://pf2em.nullstack.io/data/perspective/client/Pathfinder2e/encounterManager/As5TYxXh" target="_blank">Tabletop Game Project built with Ignition (Running Demo)</a></li>
-        <p><li><a href="https://www.linkedin.com/posts/inductive-automation_fantasy-game-management-with-ignition-maker-activity-6804108255028228096-2pkO/?trk=public_profile_like_view" target="_blank">Game Project explanation + Co-marketing with Inductive Automation</a></li>
-        <p><li><a href="https://inductiveautomation.com/exchange/123/overview" target="_blank">BetterGraphs: An Ignition project extension for full graph functionality for vision projects.</a></li>
-        <p><li><a href="https://inductiveautomation.com/exchange/2049/overview" target="_blank">Plex Dashboard for Ignition Maker Edition: View your Plex Server's 'On Deck' and 'Recently Added' in Ignition! </a></li>
-        </ul>
-    </div>
-    <div class="container2 video-card">
-        <h1>Featured Video</h1>
-        <iframe src="https://www.youtube-nocookie.com/embed/jOogUIsuecg?autoplay=0&amp;loop=0" title="Modern SCADA &amp; IT/OT Integration: The Future of Automation with Max Carrit" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+            <p>Thank you for visiting scadatorch.com. At this time, operations are paused and I am not accepting new clients.</p>
+            <p>To stay informed about future updates, please connect with me on:</p>
+            <p>
+                LinkedIn: <a href="https://www.linkedin.com/in/maxcarritt/" target="_blank">Max Carritt</a><br>
+                YouTube: <a href="https://www.youtube.com/@scadatorch2211" target="_blank">SCADA Torch Channel</a>
+            </p>
+        </div>
+        <div class="container2">
+            <h1>Check out some of my work:</h1>
+            <ul>
+                <li><a href="https://inductiveautomation.com/resources/customerproject/edge-computing-and-mqtt-help-uncrewed-vessels-gather-data-from-oceans" target="_blank">Edge Computing and MQTT Help Uncrewed Vessels Gather Data from Oceans</a></li>
+                <li><a href="https://pf2em.nullstack.io/data/perspective/client/Pathfinder2e/encounterManager/As5TYxXh" target="_blank">Tabletop Game Project built with Ignition (Running Demo)</a></li>
+                <li><a href="https://www.linkedin.com/posts/inductive-automation_fantasy-game-management-with-ignition-maker-activity-6804108255028228096-2pkO/?trk=public_profile_like_view" target="_blank">Game Project explanation + Co-marketing with Inductive Automation</a></li>
+                <li><a href="https://inductiveautomation.com/exchange/123/overview" target="_blank">BetterGraphs: An Ignition project extension for full graph functionality for vision projects.</a></li>
+                <li><a href="https://inductiveautomation.com/exchange/2049/overview" target="_blank">Plex Dashboard for Ignition Maker Edition: View your Plex Server's 'On Deck' and 'Recently Added' in Ignition!</a></li>
+            </ul>
+        </div>
+        <div class="container2 video-card">
+            <h1>Featured Video</h1>
+            <iframe src="https://www.youtube-nocookie.com/embed/jOogUIsuecg?autoplay=0&amp;loop=0" title="Modern SCADA &amp; IT/OT Integration: The Future of Automation with Max Carrit" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="container2 linkedin-card">
+            <h1>Featured LinkedIn Post</h1>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453103886883594240" title="Embedded LinkedIn post" loading="lazy" allowfullscreen></iframe>
+            <div class="linkedin-images">
+                <img src="images/tiger-data-comparison.jpg" alt="Ignition and Tiger Data historian performance dashboard">
+                <img src="images/plain-postgres.jpg" alt="Ignition native PostgreSQL historian performance dashboard">
+            </div>
+        </div>
+    </main>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const lines = document.querySelectorAll('.line');
