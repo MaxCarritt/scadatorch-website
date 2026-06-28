@@ -37,6 +37,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             color: #333;
             max-width: 600px;
+            width: calc(100% - 80px);
             margin-top: 40px;
             z-index: 2;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -48,10 +49,17 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             color: #333;
             max-width: 600px;
+            width: calc(100% - 80px);
             margin-top: 40px;
             text-align: left;
             z-index: 2;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        .video-card iframe {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 0;
         }
         h1 {
             font-family: 'Open Sans', sans-serif;
@@ -178,8 +186,11 @@
         <p><li><a href="https://www.linkedin.com/posts/inductive-automation_fantasy-game-management-with-ignition-maker-activity-6804108255028228096-2pkO/?trk=public_profile_like_view" target="_blank">Game Project explanation + Co-marketing with Inductive Automation</a></li>
         <p><li><a href="https://inductiveautomation.com/exchange/123/overview" target="_blank">BetterGraphs: An Ignition project extension for full graph functionality for vision projects.</a></li>
         <p><li><a href="https://inductiveautomation.com/exchange/2049/overview" target="_blank">Plex Dashboard for Ignition Maker Edition: View your Plex Server's 'On Deck' and 'Recently Added' in Ignition! </a></li>
-        
         </ul>
+    </div>
+    <div class="container2 video-card">
+        <h1>Featured Video</h1>
+        <iframe src="https://www.youtube-nocookie.com/embed/jOogUIsuecg?autoplay=0&amp;loop=0" title="Modern SCADA &amp; IT/OT Integration: The Future of Automation with Max Carrit" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
